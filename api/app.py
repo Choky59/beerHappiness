@@ -1,7 +1,11 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from artistas import reggetoneros
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
+
+@app.route("/")
+def goHome():
+    return render_template("index.html")
 
 @app.route('/artistas', methods=["GET"])
 def getArtistas(): 
@@ -13,7 +17,6 @@ def getArtista(artista):
     for regg in reggetoneros: 
         if artista == regg['name']:
             regFound = regg
-        
     return jsonify(regFound)
 
 

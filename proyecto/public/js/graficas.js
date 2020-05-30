@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         Object.entries(snapshot.val()).forEach(([key, value]) => {
-            let currentCountry = [key, value['HappinessScore'], value['Beer_PerCapita'], value["GDP_PerCapita"] + value["Spirit_PerCapita"] + value["Wine_PerCapita"]]
+            let currentCountry = [key, value['HappinessScore'] * 100, value['Beer_PerCapita'], value["GDP_PerCapita"] + value["Spirit_PerCapita"] + value["Wine_PerCapita"]]
             structured_data.push(currentCountry)
             structured_scatter1.push([value['Beer_PerCapita'], value['HappinessScore']])
             structured_scatter2.push([value['Spirit_PerCapita'] + value['Wine_PerCapita'] + value['GDP_PerCapita'], value['HappinessScore']])
@@ -69,11 +69,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // grafica Happiness vs. alcohol consumption
 
     function scatterChart2() {
-        var data = google.visualization.arrayToDataTable(structured_scatter1);
+        var data = google.visualization.arrayToDataTable(structured_scatter2);
 
         var options = {
             title: 'Happiness vs. alcohol consumption',
-            hAxis: { title: 'Beer per capita', minValue: 2, maxValue: 8 },
+            hAxis: { title: 'Alcohol consumption', minValue: 2, maxValue: 8 },
             vAxis: { title: 'Happiness', minValue: 0, maxValue: 8 },
             legend: 'none'
         };
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return b[3] - a[3]
         })
 
-        var data = google.visualization.arrayToDataTable(structured_data.slice(0, 15));
+        var data = google.visualization.arrayToDataTable(structured_data.slice(0, 10));
 
         var options = {
             chart: {
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return b[2] - a[2]
         })
 
-        var data = google.visualization.arrayToDataTable(structured_data.slice(0, 15));
+        var data = google.visualization.arrayToDataTable(structured_data.slice(0, 10));
 
         var options = {
             chart: {
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return b[1] - a[1]
         })
 
-        var data = google.visualization.arrayToDataTable(structured_data.slice(0, 15));
+        var data = google.visualization.arrayToDataTable(structured_data.slice(0, 10));
 
         var options = {
             chart: {

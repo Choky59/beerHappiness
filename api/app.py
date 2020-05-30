@@ -4,8 +4,16 @@ from artistas import reggetoneros
 app = Flask(__name__, static_url_path='/static')
 
 @app.route("/")
-def goHome():
+def goIndex():
     return render_template("index.html")
+
+@app.route("/mapa")
+def goMap():
+    return render_template("mapa.html")
+
+@app.route("/graficas")
+def goGraphs():
+    return render_template("graficas.html")
 
 @app.route('/artistas', methods=["GET"])
 def getArtistas(): 

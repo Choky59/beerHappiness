@@ -11,8 +11,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(mymap);
 
 var coutries = JSON.parse(locations); 
-console.log(coutries)
-
+var beerData = JSON.parse(dataset); 
 
 Object.entries(coutries).forEach(([key,value])=> {
 
@@ -20,7 +19,11 @@ Object.entries(coutries).forEach(([key,value])=> {
         return
     }
 
+    if(!beerData[key]){
+        return
+    }
+
     var marker = L.marker([value.latitude, value.longitude]).addTo(mymap);
-    marker.bindPopup(`<b>${key} </b><br><b>Happiness Score </b><br>${Math.random()}.`).openPopup();
+    marker.bindPopup(`<b>${key} </b><br><b>Happiness Score </b><br>${beerData[key].HappinessScore}`).openPopup();
 })
 

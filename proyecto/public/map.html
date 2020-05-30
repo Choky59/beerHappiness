@@ -29,7 +29,7 @@
 <body>
   <div>
     <!-- navigation bar -->
-    <div class="bg-secondary d-flex bd-highlight">
+    <div class="bg-secondary d-flex bd-highlight" style="z-index: 1;">
       <div class="p-2 flex-grow-1 bd-highlight">
         <a href="/">
           <font size=5 style="color: white">Equipo 1</font>
@@ -43,7 +43,10 @@
       </div>
     </div>
     <!-- content of the screen -->
-    <div id="mapid"></div>
+
+    <div style="position: relative; top:60px">
+      <div id="mapid"></div>
+    </div>
   </div>
 
 
@@ -63,22 +66,12 @@
     crossorigin=""></script>
 
     <!-- javascript files -->
-
+    <script type="text/javascript" src="./resources/dataset.js"></script>
     <script type="text/javascript" src="./resources/data.js"></script>
     <script type="text/javascript" src="./js/map.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-      // // The Firebase SDK is initialized and available here!
-      //
-      // firebase.auth().onAuthStateChanged(user => { });
-      // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-      // firebase.messaging().requestPermission().then(() => { });
-      // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-      //
-      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
       try {
         let app = firebase.app();
         let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');

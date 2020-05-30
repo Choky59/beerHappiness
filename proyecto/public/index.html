@@ -53,13 +53,17 @@
         alcohol consumption go hand in hand. With that in mind we are curious to see if this is true all across the
         world
         or if there are differences. <br> <br>
-        The plan is to:
-      <ul>
-        <li>Look at the Happiness Scores</li>
-        <li>Look at the Human Development Index (HDI)</li>
-        <li>Look at the GDP Per Capita</li>
-        <li>Look at the Alcohol consumption per Capita</li>
-      </ul>
+
+        Top 10 REGIONS/COUNTRIES <br>
+        - GDP<br>
+        - HDI <br>
+        - HappinessScore<br>
+        - Alcohol Consumption<br><br>
+
+        - Relation between GDP, HDI y HappinessScore<br>
+        - Relation between GDP, HDI y Alcohol Consumption<br>
+        - Relation between HappinessScore y Alcohol Consumption<br>
+
       </p>
 
       <div style="height: 300px"></div>
@@ -83,16 +87,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-      // // The Firebase SDK is initialized and available here!
-      //
-      // firebase.auth().onAuthStateChanged(user => { });
-      // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-      // firebase.messaging().requestPermission().then(() => { });
-      // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-      //
-      // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
       try {
         let app = firebase.app();
         let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
